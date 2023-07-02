@@ -12,10 +12,16 @@ print(dataset.info())
 print(dataset.describe())
 column_names = ['work_year', 'experience_level', 'employment_type', 'job_title', 'salary', 'salary_currency', 'salary_in_usd', 'employee_residence', 'remote_ratio', 'company_location', 'company_size']
 
-# Create a histogram using Matplotlib
 for column in column_names:
-    plt.hist(dataset[column], bins=10)
-    plt.xlabel('Values')
-    plt.ylabel('Frequency')
-    plt.title(f'Employee Graph of {column}')
-    plt.show()
+    plt.scatter(dataset[column], range(len(dataset)), label=column)
+
+# Add labels and title
+plt.xlabel('Values')
+plt.ylabel('Index')
+plt.title('Scatter Plot of Employee Data')
+
+# Add legend
+plt.legend()
+
+# Show the plot
+plt.show()
