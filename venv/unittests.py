@@ -7,13 +7,13 @@ import statsmodels.api as sm
 class TestDescriptiveStats(unittest.TestCase):
 
     def setUp(self):
-        # Load sample salary dataset
+        # sample salary dataset
         dataset = pd.read_csv('C:/Users/justo/module1dataset/ds_salaries.csv', nrows=5)
         self.column_names = ['work_year', 'salary', 'salary_in_usd', 'remote_ratio']
         self.selected_data = dataset[self.column_names]
 
     def test_column_properties(self):
-        # Test column properties such as numeric type, missing values, and unique values
+        # test numeric type, missing values, and unique values
         expected_counts = [5, 5, 5, 5]
         expected_missing_values = [0, 0, 0, 0]
         expected_unique_values = [1, 5, 5, 1]
@@ -27,7 +27,7 @@ class TestDescriptiveStats(unittest.TestCase):
                 self.assertEqual(selected_column.nunique(), expected_unique_values[i])
 
     def test_causation_analysis(self):
-        # Test the causation analysis for different combinations of independent and dependent variables
+        # test for causation analysis for different combinations of independent and dependent variables
         combinations = [('work_year', 'salary'), ('salary_in_usd', 'remote_ratio')]
 
         for independent_var, dependent_var in combinations:
