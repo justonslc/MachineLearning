@@ -14,7 +14,7 @@ def load_and_preprocess_data(filepath, rows=None):
     # Load the data from CSV file
     data = pd.read_csv(filepath, nrows=rows)
     
-    # Drop unuseful columns from the data
+    # Drop columns from the data
     data = data.drop(['objid', 'run', 'rerun', 'camcol', 'field', 'specobjid'], axis=1)
     
     # Initialize LabelEncoder
@@ -75,10 +75,10 @@ def train_and_evaluate_knn(X_train, y_train, X_test, y_test, n_neighbors):
     # Generate confusion matrix
     cm = confusion_matrix(y_test, y_pred)
     
-    # Generate probabilistic predictions
+    # Generate  predictions
     y_proba = knn.predict_proba(X_test)
     
-    # Return accuracy, report, confusion matrix, and probabilistic predictions
+    # Return accuracy, report, confusion matrix, and predictions
     return accuracy, report, cm, y_proba
 
 # Function to select features
@@ -175,7 +175,7 @@ def demonstrate_feature_extraction_and_selection(X_train, y_train, X_test, y_tes
 
 # Function to create 3D graph
 def demonstrate_three_dimensional_graph(X_train, y_train, X_test, y_test):
-    # Initialize figure and 3D subplot
+    # Initialize figure and 
     fig = plt.figure(figsize=(8, 6))
     ax = fig.add_subplot(111, projection='3d')
     
@@ -198,7 +198,7 @@ def demonstrate_three_dimensional_graph(X_train, y_train, X_test, y_test):
     # Display the plot
     plt.show()
 
-# Function to tune hyperparameters
+# Function to tune parameters
 def hyperparameter_tuning(X_train, y_train):
     # Initialize KNN classifier
     knn = KNeighborsClassifier()
@@ -206,7 +206,7 @@ def hyperparameter_tuning(X_train, y_train):
     # Define parameter grid
     param_grid = {'n_neighbors': [1, 3, 5, 10, 15, 20]}
     
-    # Initialize GridSearchCV
+    # Initialize git search
     grid_search = GridSearchCV(knn, param_grid, cv=5)
     
     # Fit GridSearchCV to the training data
